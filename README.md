@@ -1,2 +1,2 @@
 # rock-paper-scissors
-A Rock Paper Scissor game made for TOP
+A Rock Paper Scissors game made for TOP
