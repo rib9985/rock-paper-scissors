@@ -19,9 +19,12 @@ let computerScore = 0;
 }
 
 function playerPlay(){
-    return prompt("Choose your weapon!") 
-};
-
+    let playerChoice = prompt("Choose your weapon!") 
+    while (playerChoice === ""){
+        playerChoice = prompt("No weapon chosen, pick again")
+    }
+    return playerChoice
+}
 
 function playRound() {
     let playerSelection = playerPlay().toLowerCase()
