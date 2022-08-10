@@ -29,11 +29,15 @@ function playerPlay(){
 function playRound() {
     let playerSelection = playerPlay().toLowerCase()
     let computerSelection = computerPlay()
-if ((playerSelection == rock && computerSelection == paper) || (playerSelection == scissors && computerSelection == rock) || (playerSelection == paper && computerSelection == scissors)) {
+if ((playerSelection == rock && computerSelection == paper) || 
+(playerSelection == scissors && computerSelection == rock) || 
+(playerSelection == paper && computerSelection == scissors)) {
     computerScore++;
     return console.log(`You lose round ${round}! ${computerSelection} beats ${playerSelection}!`)
 }
-else if ((computerSelection == rock && playerSelection == paper) || (computerSelection == scissors && playerSelection == rock) || (computerSelection == paper && playerSelection == scissors)) {
+else if ((computerSelection == rock && playerSelection == paper) || 
+(computerSelection == scissors && playerSelection == rock) || 
+(computerSelection == paper && playerSelection == scissors)) {
     playerScore++;
     return console.log(`You win round ${round}! ${playerSelection} beats ${computerSelection}!`); 
     
