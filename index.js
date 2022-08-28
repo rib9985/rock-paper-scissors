@@ -21,31 +21,7 @@ let computerScore = 0;
  function computerPlay() {
     let computerChoice = [rock, paper, scissors]
     return computerChoice[Math.floor(Math.random() * computerChoice.length)]
-}
-
-function playerPlay(){
-    let playerChoice = prompt("Choose your weapon!") 
-    while (playerChoice === ""){
-        playerChoice = prompt("No weapon chosen, pick again")
-    }
-    return playerChoice
-}
-
-function playRound() {
-    let playerSelection = playerPlay().toLowerCase()
-    let computerSelection = computerPlay()
-if ((playerSelection == rock && computerSelection == paper) || 
-(playerSelection == scissors && computerSelection == rock) || 
-(playerSelection == paper && computerSelection == scissors)) {
-    computerScore++;
-    return console.log(`You lose round ${round}! ${computerSelection} beats ${playerSelection}!`)
-}
-else if ((computerSelection == rock && playerSelection == paper) || 
-(computerSelection == scissors && playerSelection == rock) || 
-(computerSelection == paper && playerSelection == scissors)) {
-    playerScore++;
-    return console.log(`You win round ${round}! ${playerSelection} beats ${computerSelection}!`); 
-}
+    
 }
 
 function checkRound() {
