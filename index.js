@@ -4,14 +4,19 @@ const scissors = "scissors";
 
 const player = "Player"
 const computer = "Computer"
-let round = 0
 
-const gameBegin = "Let's begin the game, rock, paper & scissors."
+const gameBegin = "Let's begin the game of rock, paper & scissors."
 const gameEnd = "End of the battle! The results are in..."
 
 
+const beginGame = document.querySelector("#beginGame");
+beginGame.addEventListener('click', () => {game(round=0, playerScore=0, computerScore=0)})
+
+let round=0
 let playerScore = 0;
-let computerScore = 0;
+let computerScore = 0;    
+
+
 
  function computerPlay() {
     let computerChoice = [rock, paper, scissors]
@@ -40,30 +45,75 @@ else if ((computerSelection == rock && playerSelection == paper) ||
 (computerSelection == paper && playerSelection == scissors)) {
     playerScore++;
     return console.log(`You win round ${round}! ${playerSelection} beats ${computerSelection}!`); 
+}
+}
+
+function checkRound() {
+    if ((playerScore == 5)|| (computerScore == 5)) {
+        endGame()
+    }
+}
+
+function endGame(){
+    if ((playerScore > computerScore)){
+        document.getElementById('prompt').innerHTML=`You win by ${playerScore} vs. ${computerScore}. Press Any Button to play again!`
+        return round = 0, playerScore = 0, computerScore = 0   
+    }
+        else{
+        document.getElementById('prompt').innerHTML=`You lost! Computers wins by ${computerScore} vs. ${playerScore}. 
+        Press Any Button to play again!`
+        return round = 0, playerScore = 0, computerScore = 0
+}
+
+}
+
+
+
+function playRound(playerSelection, computerSelection) {
     
+if ((playerSelection == rock && computerSelection == paper) 
+|| (playerSelection == scissors && computerSelection == rock) 
+|| (playerSelection == paper && computerSelection == scissors)) {
+    computerScore++;
+    document.getElementById('prompt').innerHTML =
+    `You lose round ${round}! ${computerSelection} beats ${playerSelection}!`;
+    document.getElementById('scoreboard').innerHTML = `${playerScore}X${computerScore}`
+    round++;
 }
+
+else if ((computerSelection == rock && playerSelection == paper) 
+|| (computerSelection == scissors && playerSelection == rock) 
+|| (computerSelection == paper && playerSelection == scissors)) {
+    playerScore++;
+    document.getElementById('prompt').innerHTML =
+    `You win round ${round}! ${playerSelection} beats ${computerSelection}!`; 
+    document.getElementById('scoreboard').innerHTML = `${playerScore}X${computerScore}`
+    round++;
+}
+
 else {
-    return console.log(`It's a tie! Both have selected ${playerSelection}`)
+    document.getElementById('prompt').innerHTML =
+    `Round ${round} is a tie! Both have selected ${playerSelection}`;
+    document.getElementById('scoreboard').innerHTML = `${playerScore}X${computerScore}`
+    round++;
 }
-round++;
+return checkRound()
 }
 
 
 function game() {
-    console.log(gameBegin)
-    for (let i = 0; i < 5; i++){
-        console.log(`Round ${round} start!`)
-        playRound()
-        round++;
+document.getElementById('prompt').innerHTML = "Let's begin the game of rock, paper & scissors. Choose your Weapon!";
+        const scissorsButton = document.querySelector("#scissorsButton");
+        scissorsButton.addEventListener('click', () => {playRound(scissors, computerPlay())})
+
+        const paperButton = document.querySelector("#paperButton");
+        paperButton.addEventListener('click', () => {playRound(paper, computerPlay())})
+
+        const rockButton = document.querySelector("#rockButton");
+        rockButton.addEventListener('click', () => {playRound(rock, computerPlay())})
+    
+        document.getElementById('scoreboard').innerHTML = `${playerScore}X${computerScore}`
     }
-    console.log(gameEnd)
-    if (playerScore >computerScore) {
-        return `You win by ${playerScore} vs. ${computerScore}`
-    }
-    else if (playerScore < computerScore) {
-        return `You lost! Computers wins by ${computerScore} vs. ${playerScore}`
-    }
-}
 
 
 

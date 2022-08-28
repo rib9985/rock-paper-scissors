@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+body{
+    font-family: 'Silkscreen', cursive;
+}
+
+.header, .mainMenu {
+display: flex;
+padding: 10px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.choices{
+    display: flex;
+    margin: 2px;
+    padding: 10px;
+    justify-content: center;
+    align-items:center;
+}
+
+#scoreboard{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Silkscreen', cursive;
+}
+
+#rockButton,#scissorsButton,#paperButton,#beginGame{
+    margin:10px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Silkscreen', cursive;
+}
